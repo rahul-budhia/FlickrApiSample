@@ -3,5 +3,7 @@
 		<button type="button" class="close" ng-click="hideExpanded()">
 			<span aria-hidden="true">×</span>
 		</button>
+		<span class="slide-control prev" ng-click="prevSlide()" ng-if="slideIndex > 0 || false"></span>
+		<span class="slide-control next" ng-click="nextSlide()" ng-if="slideIndex < numPerPage - 1 || false"></span>
 	</div>
 </div>

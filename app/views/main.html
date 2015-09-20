@@ -15,7 +15,7 @@
   <div class="col-md-12">
     <button class="btn btn-default pull-left" type="button" ng-click="prevPage()" ng-disabled="currentPage == 1">Prev <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
     <span class="page-info"><span ng-bind="currentPage"></span> / <span ng-bind="maxPages"></span></span>
-    <button class="btn btn-default pull-right" type="button" ng-click="nextPage()" ng-disabled="currentPage == constants.maxPages">Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+    <button class="btn btn-default pull-right" type="button" ng-click="nextPage()" ng-disabled="currentPage == maxPages">Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
   </div>
 </div>
 
@@ -28,6 +28,9 @@
           <span class="title">{{img.title}}</span>
       </div>
     </div>
+  </div>
+  <div class="col-md-12" ng-show="images.length === 0">
+    <div class="no-images">No Images found for this query</div>
   </div>
 </div>
 

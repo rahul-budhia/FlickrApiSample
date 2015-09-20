@@ -20,10 +20,6 @@
 	background-size: cover;
 	box-shadow: 0 1px 20px 1px rgba(0,0,0,0.7);
 }
-.expanded {
-	.size(400px, 400px);
-	.cover;
-}
 .cell {
 	height: 200px;
 	text-align: center;
@@ -73,7 +69,8 @@
 	z-index: 10;
 	.expanded {
 		margin: 5% auto;
-		width: 80%;
+		max-width: 70%;
+		min-height: 500px;
 		.cover;
 		.close {
 			.size(30px,30px);
@@ -86,4 +83,26 @@
 			opacity: 0.5;
 		}
 	}
+}
+.slide-control {
+	.size(35px,35px);
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	margin-top: -17px;
+}
+
+.next{
+	background: url("../images/right.png") no-repeat scroll 0 0 transparent;
+	right: 2%;
+	.slide-control
+}
+.prev{
+	background: url("../images/left.png") no-repeat scroll 0 0 transparent;
+	left: 2%;
+	.slide-control
+}
+.no-images {
+	text-align: center;
 }

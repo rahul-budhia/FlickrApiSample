@@ -24,9 +24,9 @@ angular.module('flickrappApp')
 						//URL suffixed with 't' for 'thumbnai', 'z' for 'medium', similarly 'l' for large
 						extras: 'count_comments,count_faves,description,realname,url_m,url_z',
 						api_key: constants.api.key,
-						per_page:12,
+						// per_page:12,
 						// page:1,
-						orientation:'square',
+						// orientation:'square',
 						format:'json'
 					}
 				}

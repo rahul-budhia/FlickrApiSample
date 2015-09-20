@@ -29,7 +29,7 @@ angular.module('flickrappApp')
 
   	//Fetches images from API
   	function getImages() {
-  		flickrService.getImages({text: $scope.query, page: $scope.currentPage}, function(res) {
+  		flickrService.getImages({text: $scope.query, page: $scope.currentPage, per_page:$scope.numPerPage}, function(res) {
   			console.log("res: ", res);
   			$scope.maxPages = res.photos.pages;
   			$scope.images = res.photos.photo;
@@ -38,11 +38,17 @@ angular.module('flickrappApp')
 
   	$scope.showExpanded = false;
   	$scope.showExpanded = function(index) {
-  		$scope.expandedImgIndex = index;
+  		$scope.slideIndex = index;
   		$scope.imgToExpand = $scope.images[index].url_z;
   		$scope.expandedView = true;
   	};
   	$scope.hideExpanded = function() {
   		$scope.expandedView = false;
   	};
+    $scope.nextSlide = function() {
+      $scope.showExpanded(++$scope.slideIndex)
+    };
+    $scope.prevSlide = function() {
+      $scope.showExpanded(--$scope.slideIndex)
+    };
   });
