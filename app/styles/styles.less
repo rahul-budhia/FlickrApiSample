@@ -1,0 +1,89 @@
+@cell-bg: #ffffff;
+.size(@width: 100%, @height: 100%) {
+	width: @width;
+	height: @height;
+}
+.maxsize(@width: 100%, @height: 100%) {
+	max-width: @width;
+	max-height: @height;
+}
+.ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.cover {
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: @cell-bg;
+	background-size: cover;
+	box-shadow: 0 1px 20px 1px rgba(0,0,0,0.7);
+}
+.expanded {
+	.size(400px, 400px);
+	.cover;
+}
+.cell {
+	height: 200px;
+	text-align: center;
+	margin: 10px 0;
+	.cover;
+	a.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		.size;
+	}
+	.info-bar {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		bottom: -15px;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 8px 0 8px;
+		z-index: 2;
+		background-color: rgba(0, 0, 0, 0.56);
+		color: white;
+		text-shadow: 0 0 2px #000;
+		font-size: 14px;
+		font-family: sans-serif;
+		padding: 10px;
+		transition: all 0.2s;
+		.ellipsis;
+	}
+}
+.cell:hover {
+	.info-bar {
+		opacity: 1;
+		transform: translateY(-15px);
+	}
+}
+.nav-gallery {
+	text-align: center;
+}
+.backdrop {
+	.size;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.56);
+	top: 0;
+	left: 0;
+	z-index: 10;
+	.expanded {
+		margin: 5% auto;
+		width: 80%;
+		.cover;
+		.close {
+			.size(30px,30px);
+			position: absolute;
+			right: 0;
+			padding: 0;
+			color: white;
+			cursor: pointer;
+			background: black;
+			opacity: 0.5;
+		}
+	}
+}

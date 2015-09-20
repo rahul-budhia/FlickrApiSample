@@ -1,0 +1,34 @@
+<!-- Search Box -->
+<div class="row">
+  <form class="col-md-12" name="searchForm" novalidate ng-submit="searchForm.$valid && search()">
+    <div class="input-group">
+      <input type="text" ng-model="query" class="form-control" placeholder="Search ...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Search <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+    </div>
+  </form>
+</div>
+
+<!-- Nav controls -->
+<div class="row nav-gallery" ng-show="images.length > 0">
+  <div class="col-md-12">
+    <button class="btn btn-default pull-left" type="button" ng-click="prevPage()" ng-disabled="currentPage == 1">Prev <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+    <span class="page-info"><span ng-bind="currentPage"></span> / <span ng-bind="maxPages"></span></span>
+    <button class="btn btn-default pull-right" type="button" ng-click="nextPage()" ng-disabled="currentPage == constants.maxPages">Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+  </div>
+</div>
+
+<!-- Images Grid -->
+<div class="row gallery">
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-repeat="img in images">
+    <div class="cell" backimg="{{img.url_m}}">
+      <a href="" ng-click="showExpanded($index)" class="overlay"></a>
+      <div class="info-bar">
+          <span class="title">{{img.title}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'views/modal.html'" ng-show="expandedView"></div>
